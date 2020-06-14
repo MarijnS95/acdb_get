@@ -5,7 +5,7 @@ if [ ! -f $1 ]; then
     exit 1
 fi
 
-devices=`strings $1 | egrep "^(SND_DEVICE_OUT|SND_DEVICE_IN)" | sort | uniq`
+devices=`strings $1 | egrep "^(SND_DEVICE_OUT|SND_DEVICE_IN)" | sort -u`
 
 echo -ne "" > acdb_data.h
 
